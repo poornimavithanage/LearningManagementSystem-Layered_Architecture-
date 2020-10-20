@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="646.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminLecturerFormController">
+   <children>
+      <AnchorPane layoutY="-12.0" prefHeight="662.0" prefWidth="301.0" style="-fx-background-color: #11333D;">
+         <children>
+            <Line endX="162.0" endY="-1.52587890625E-5" layoutX="119.0" layoutY="88.0" startX="-100.0" stroke="#e3a1a1" />
+            <JFXButton fx:id="btnDashboard" layoutX="28.0" layoutY="98.0" onAction="#btnDashboard_OnAction" prefHeight="53.0" prefWidth="244.0" text="       Dashboard" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="31.0" fitWidth="53.0" layoutX="64.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/transportation.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnCourses" layoutX="28.0" layoutY="391.0" onAction="#btnCourses_OnAction" prefHeight="53.0" prefWidth="244.0" text="Courses" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnModules" layoutX="28.0" layoutY="493.0" onAction="#btnModules_OnAction" prefHeight="53.0" prefWidth="244.0" text="Modules" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnAccount" layoutX="28.0" layoutY="590.0" onAction="#btnAccount_OnAction" prefHeight="53.0" prefWidth="244.0" text="Account" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="64.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/courses.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="64.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/modules.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="64.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/user-icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="63.0" fitWidth="221.0" layoutX="41.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/IJSE-logo.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnStudent" layoutX="28.0" layoutY="187.0" onAction="#btnStudent_OnAction" prefHeight="53.0" prefWidth="244.0" text="Students" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnLecturers" layoutX="28.0" layoutY="289.0" onAction="#btnLecturers_OnAction" prefHeight="53.0" prefWidth="244.0" text="Lecturers" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="64.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/admin-students.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="64.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/admin-lecturer.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="301.0" prefHeight="647.0" prefWidth="1001.0">
+         <children>
+            <Label layoutX="28.0" prefHeight="63.0" prefWidth="404.0" text="Lecturers">
+               <font>
+                  <Font name="Courier" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="844.0" endY="-1.52587890625E-5" layoutX="115.0" layoutY="75.0" startX="-100.0" />
+            <JFXComboBox fx:id="cmbCourseId" layoutX="17.0" layoutY="325.0" prefHeight="31.0" prefWidth="244.0" promptText="Course" />
+            <TableView fx:id="tblAdminLecturer" layoutX="14.0" layoutY="90.0" prefHeight="150.0" prefWidth="931.0">
+               <columns>
+                  <TableColumn prefWidth="182.0" text="Lecturer Id" />
+                  <TableColumn prefWidth="245.0" text="Name" />
+                  <TableColumn prefWidth="307.0" text="Address" />
+                  <TableColumn prefWidth="196.0" text="Contact Number" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="btnAdd" layoutX="17.0" layoutY="251.0" onAction="#btnAdd_OnAction" style="-fx-background-color: #11333D;" text="Add Lecturer" textFill="#f2ebeb" />
+            <JFXTextField fx:id="txtId" editable="false" layoutX="17.0" layoutY="278.0" prefHeight="27.0" prefWidth="145.0" promptText="Lecturer Id" />
+            <JFXTextField fx:id="txtTel" layoutX="12.0" layoutY="520.0" promptText="Tel" />
+            <JFXTextField fx:id="txtAddress" layoutX="14.0" layoutY="424.0" prefHeight="27.0" prefWidth="653.0" promptText="Address" />
+            <JFXTextField fx:id="txtName" layoutX="14.0" layoutY="376.0" prefHeight="27.0" prefWidth="653.0" promptText="Name" />
+            <JFXTextField fx:id="txtPassword" layoutX="380.0" layoutY="573.0" prefHeight="27.0" prefWidth="290.0" promptText="Password" />
+            <JFXTextField fx:id="txtUsername" layoutX="12.0" layoutY="573.0" prefHeight="27.0" prefWidth="301.0" promptText="Username" />
+            <JFXButton fx:id="btnDelete" layoutX="710.0" layoutY="571.0" onAction="#btnDelete_OnAction" prefHeight="27.0" prefWidth="196.0" style="-fx-background-color: #11333D;" text="Delete" textFill="#f5e5e5" />
+            <JFXButton fx:id="btnSave" layoutX="710.0" layoutY="520.0" onAction="#btnSave_OnAction" prefHeight="27.0" prefWidth="196.0" style="-fx-background-color: #11333D;" text="Save" textFill="#eeebeb" />
+            <JFXTextField fx:id="txtEmail" layoutX="285.0" layoutY="520.0" prefHeight="27.0" prefWidth="385.0" promptText="Email" />
+            <JFXTextField fx:id="txtCourseName" layoutX="322.0" layoutY="325.0" prefHeight="31.0" prefWidth="364.0" promptText="CourseName" />
+            <JFXTextField fx:id="txtNIC" layoutX="14.0" layoutY="470.0" prefHeight="27.0" prefWidth="653.0" promptText="NIC" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

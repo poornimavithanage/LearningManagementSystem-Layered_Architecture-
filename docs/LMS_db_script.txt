@@ -1,0 +1,138 @@
+drop database LM_System;
+CREATE DATABASE LM_System;
+USE LM_System;
+
+DROP TABLE IF EXISTS Admin;
+CREATE TABLE IF NOT EXISTS Admin(
+	id VARCHAR(4),
+	name VARCHAR(100),
+	contact VARCHAR(10),
+	username VARCHAR(100),
+	password VARCHAR(20),
+	CONSTRAINT PRIMARY KEY (id)
+  );
+
+DROP TABLE IF EXISTS User;
+CREATE TABLE IF NOT EXISTS User(
+	id VARCHAR(4),
+	name VARCHAR(100),
+	address VARCHAR(100),
+	contact VARCHAR(10),
+	username VARCHAR(100),
+	password VARCHAR(20),
+	userType VARCHAR(50),
+	adminId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (id),
+	CONSTRAINT FOREIGN KEY (adminId) REFERENCES Admin(id)
+  );
+
+DROP TABLE IF EXISTS Faculty;
+CREATE TABLE IF NOT EXISTS Faculty(
+	id VARCHAR(4),
+	name VARCHAR(100),
+	address VARCHAR(100),
+	CONSTRAINT PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS FacultyContact;
+CREATE TABLE IF NOT EXISTS FacultyContact(
+	id VARCHAR(4),
+	contact VARCHAR(10),
+	CONSTRAINT PRIMARY KEY (id,contact),
+	CONSTRAINT FOREIGN KEY (id) REFERENCES Faculty(id)
+);
+
+DROP TABLE IF EXISTS Student;
+CREATE TABLE IF NOT EXISTS Student(
+	id VARCHAR(4),
+	facultyId VARCHAR(4),
+	name VARCHAR(100),
+	address VARCHAR(100),
+	contact VARCHAR(10),
+	nic VARCHAR(10),
+	email VARCHAR(100),
+	CONSTRAINT PRIMARY KEY (id),	
+	CONSTRAINT FOREIGN KEY (facultyId) REFERENCES Faculty(id)
+);
+
+DROP TABLE IF EXISTS Course;
+CREATE TABLE IF NOT EXISTS Course(
+	id VARCHAR(4),
+	title VARCHAR(100),
+	type VARCHAR(10),
+	duration DECIMAL,
+	CONSTRAINT PRIMARY KEY (id)
+  );
+
+DROP TABLE IF EXISTS Lecturer;
+CREATE TABLE IF NOT EXISTS Lecturer(
+	id VARCHAR(4),
+	courseId VARCHAR(4),
+	name VARCHAR(100),
+	address VARCHAR(100),
+	nic VARCHAR(10),
+	email VARCHAR(100),
+	CONSTRAINT PRIMARY KEY (id),
+	CONSTRAINT FOREIGN KEY (courseId) REFERENCES Course(id)
+);
+
+DROP TABLE IF EXISTS Announcement;
+CREATE TABLE IF NOT EXISTS Announcement(
+	courseId VARCHAR(4),
+	lecturerId VARCHAR(4),
+	date DATE,
+	announcement VARCHAR(100),
+	CONSTRAINT PRIMARY KEY (courseId,lecturerId),
+	CONSTRAINT FOREIGN KEY (courseId) REFERENCES Course(id),
+	CONSTRAINT FOREIGN KEY (lecturerId) REFERENCES Lecturer(id)
+);
+
+DROP TABLE IF EXISTS Module;
+CREATE TABLE IF NOT EXISTS Module(
+	id VARCHAR(4),
+	title VARCHAR(50),
+	duration VARCHAR(4),
+	credits VARCHAR(4),
+	courseId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (id),
+	CONSTRAINT FOREIGN KEY (courseId) REFERENCES Course(id)
+);
+
+DROP TABLE IF EXISTS Content;
+CREATE TABLE IF NOT EXISTS Content(
+	id VARCHAR(4),
+	title VARCHAR(50),
+	date DATE,
+	lecturerID VARCHAR(4),
+	moduleId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (id),
+	CONSTRAINT FOREIGN KEY (lecturerID) REFERENCES Lecturer(id),
+	CONSTRAINT FOREIGN KEY (moduleId) REFERENCES Module(id)
+);
+
+DROP TABLE IF EXISTS FacultyLecturer;
+CREATE TABLE IF NOT EXISTS FacultyLecturer(
+	facultyId VARCHAR(4),
+	lecturerId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (facultyId,lecturerId),
+	CONSTRAINT FOREIGN KEY (facultyId) REFERENCES Faculty(id),
+	CONSTRAINT FOREIGN KEY (lecturerId) REFERENCES Lecturer(id)
+);
+
+DROP TABLE IF EXISTS LecturerModule;
+CREATE TABLE IF NOT EXISTS LecturerModule(
+	moduleId VARCHAR(4),
+	lecturerId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (moduleId,lecturerId),
+	CONSTRAINT FOREIGN KEY (moduleId) REFERENCES Module(id),
+	CONSTRAINT FOREIGN KEY (lecturerId) REFERENCES Lecturer(id)
+);
+
+DROP TABLE IF EXISTS StudentCourse;
+CREATE TABLE IF NOT EXISTS StudentCourse(
+	studentId VARCHAR(4),
+	courseId VARCHAR(4),
+	CONSTRAINT PRIMARY KEY (studentId,courseId),
+	CONSTRAINT FOREIGN KEY (courseId) REFERENCES Course(id),
+	CONSTRAINT FOREIGN KEY (studentId) REFERENCES Student(id)
+);

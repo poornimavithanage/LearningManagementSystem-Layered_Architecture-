@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.control.CharmListView?>-->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="680.0" prefWidth="1301.0" style="-fx-background-color: #EBEBEB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentCoursesFormController">
+   <children>
+      <AnchorPane prefHeight="682.0" prefWidth="301.0" style="-fx-background-color: #11333D;">
+         <children>
+            <Line endX="162.0" endY="-1.52587890625E-5" layoutX="119.0" layoutY="88.0" startX="-100.0" stroke="#e3a1a1" />
+            <JFXButton fx:id="btnCourses" layoutX="38.0" layoutY="254.0" onAction="#btnCourses_OnAction" prefHeight="53.0" prefWidth="244.0" text="Courses" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnModules" layoutX="38.0" layoutY="356.0" onAction="#btnModules_OnAction" prefHeight="53.0" prefWidth="244.0" text="Modules" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnAccount" layoutX="38.0" layoutY="453.0" onAction="#btnAccount_OnAction" prefHeight="53.0" prefWidth="244.0" text="Account" textFill="#c7d6d5">
+               <font>
+                  <Font name="DIN Alternate Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="41.0" fitWidth="44.0" layoutX="69.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/courses.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="74.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/modules.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="74.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/user-icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="63.0" fitWidth="221.0" layoutX="41.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/IJSE-logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="subAnchorPane" layoutX="300.0" prefHeight="682.0" prefWidth="1001.0" style="-fx-background-color: #EBEBEB;">
+         <children>
+            <Label layoutX="34.0" layoutY="14.0" prefHeight="63.0" prefWidth="404.0" text="Courses">
+               <font>
+                  <Font name="Courier" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="844.0" endY="-1.52587890625E-5" layoutX="121.0" layoutY="89.0" startX="-100.0" />
+            <AnchorPane layoutX="23.0" layoutY="104.0" prefHeight="566.0" prefWidth="956.0" style="-fx-background-color: #D7D7D7;">
+               <children>
+                  <AnchorPane layoutX="27.0" layoutY="85.0" prefHeight="95.0" prefWidth="871.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label fx:id="lblTitle" layoutX="37.0" layoutY="27.0" prefHeight="41.0" prefWidth="404.0" text="Title">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblType" layoutX="453.0" layoutY="27.0" prefHeight="41.0" prefWidth="404.0" text="Type">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="4.0" text="Course Title :">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="453.0" layoutY="6.0" text="Course Type :">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="27.0" layoutY="202.0" prefHeight="347.0" prefWidth="871.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label layoutX="34.0" layoutY="27.0" prefHeight="41.0" prefWidth="804.0" text="Announcements">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="vBoxAnnouncements" layoutX="30.0" layoutY="68.0" prefHeight="247.0" prefWidth="806.0" />
+                        <!--<CharmListView fx:id="lstAnnouncements" layoutX="36.0" layoutY="77.0" prefHeight="279.0" prefWidth="820.0" />-->
+                     </children>
+                  </AnchorPane>
+                  <JFXComboBox fx:id="cmbCourses" layoutX="27.0" layoutY="27.0" prefHeight="31.0" prefWidth="871.0" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="864.0" layoutY="14.0" text="Student ID :" />
+            <Label fx:id="lblStudentId" layoutX="938.0" layoutY="14.0" text="Label" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
